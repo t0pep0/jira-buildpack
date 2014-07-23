@@ -9,7 +9,7 @@ set -e
 echo "-----> Install Oracle JDK"
 curl 'https://github.com/t0pep0/jira-buildpack/raw/master/deb/oracle-java7-installer_7u65%2B7u60arm-0~webupd8~2_all.deb' > '/tmp/oracle-java7-installer_7u65%2B7u60arm-0~webupd8~2_all.deb'
 curl 'https://github.com/t0pep0/jira-buildpack/raw/master/deb/oracle-java7-set-default_7u65%2B7u60arm-0~webupd8~2_all.deb' > '/tmp/oracle-java7-set-default_7u65%2B7u60arm-0~webupd8~2_all.deb'
-dpkg -i '/tmp/deb/oracle-java7-installer_7u65+7u60arm-0~webupd8~2_all.deb'
-dpkg -i '/tmp/deb/oracle-java7-set-default_7u65+7u60arm-0~webupd8~2_all.deb'
+dpkg -i '/tmp/oracle-java7-installer_7u65+7u60arm-0~webupd8~2_all.deb'
+dpkg -i '/tmp/oracle-java7-set-default_7u65+7u60arm-0~webupd8~2_all.deb'
 echo "-----> Set JIRA_HOME"
 export JIRA_HOME=/app/
