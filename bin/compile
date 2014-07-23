@@ -27,7 +27,7 @@ mkdir $build_dir/logs
 mkdir $build_dir/work
 mkdir $build_dir/jira-home
 echo "-----> Write Jira Config"
-defaultHost=`cat /etc/hosts | grep $HOSTNAME | awk '{print $1}'`
+#defaultHost=`cat /etc/hosts | grep $HOSTNAME | awk '{print $1}'`
 echo '<?xml version="1.0" encoding="utf-8"?>
 <Server port="8005" shutdown="SHUTDOWN">
     <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on"/>
