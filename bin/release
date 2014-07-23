@@ -4,6 +4,6 @@ app_root="/app"
 cat <<STUFF
 ---
 default_process_types:
-  web: "$app_root/bin/start-jira.sh" 
+  web: "$app_root/bin/start-jira.sh -fg" 
 STUFF
 
