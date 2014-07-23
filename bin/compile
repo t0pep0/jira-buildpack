@@ -6,10 +6,11 @@ cache_dir=$2
 # fail fast
 set -e
 echo "-----> Accept Java License"
-echo "sun-java5-jdk shared/accepted-sun-dlj-v1-1 select true
-sun-java5-jre shared/accepted-sun-dlj-v1-1 select true
-sun-java6-jdk shared/accepted-sun-dlj-v1-1 select true
-sun-java6-jre shared/accepted-sun-dlj-v1-1 select true" > /tmp/java.license
+echo "sun-java6-jdk shared/accepted-sun-dlj-v1-1 select true
+sun-java6-jre shared/accepted-sun-dlj-v1-1 select true
+sun-java7-jdk shared/accepted-sun-dlj-v1-1 select true
+sun-java7-jre shared/accepted-sun-dlj-v1-1 select true
+sun-java7-jdk shared/accepted-oracle-license-v1-1 select true" > /tmp/java.license
 /usr/bin/debconf-set-selections /tmp/java.license
 
 echo "-----> Install Oracle JDK"
