@@ -26,6 +26,7 @@ echo "-----> Create JIRA dir"
 mkdir $build_dir/logs
 mkdir $build_dir/work
 echo "-----> Write Jira Config"
+defaultHost=cat /etc/hosts | grep $HOSTNAME | awk '{print $1}'
 echo '<?xml version="1.0" encoding="utf-8"?>
 <Server port="8005" shutdown="SHUTDOWN">
     <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on"/>
@@ -43,7 +44,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>
                    redirectPort="8443"
                    acceptCount="100"
                    disableUploadTimeout="true"/>
-        <Engine name="Catalina" defaultHost="0.0.0.0">
+        <Engine name="Catalina" defaultHost="'$defaultHost'">
             <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true">
                 <Context path="" docBase="${catalina.home}/atlassian-jira" reloadable="false" useHttpOnly="true">
                     <Resource name="UserTransaction" auth="Container" type="javax.transaction.UserTransaction"
