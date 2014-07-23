@@ -23,8 +23,8 @@ cd -
 echo "-----> Set JIRA_HOME"
 export JIRA_HOME=/app/
 echo "-----> Create JIRA dir"
-mkdir $app_root/logs
-mkdir $app_root/work
+mkdir $build_dir/logs
+mkdir $build_dir/work
 echo "-----> Write Jira Config"
 echo '
 <?xml version="1.0" encoding="utf-8"?>
@@ -194,4 +194,4 @@ echo '
 
         </Engine>
     </Service>
-</Server>' > /app/conf/server.xml
+</Server>' > $build_dir/conf/server.xml
