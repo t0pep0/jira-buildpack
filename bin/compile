@@ -7,6 +7,8 @@ cache_dir=$2
 set -e
 
 echo "-----> Install Oracle JDK"
+apt-get install  python-software-properties -y
+dpkg-reconfigure python-software-properties
 add-apt-repository -y ppa:webupd8team/java
 apt-get -y update
 apt-get -y install oracle-java7-installer 
