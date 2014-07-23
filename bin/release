@@ -4,6 +4,6 @@ app_root="/app"
 cat <<STUFF
 ---
 default_process_types:
-  web: "JIRA_HOME=/app/atlassian-jira $app_root/bin/start-jira.sh -fg" 
+  web: "JIRA_HOME=/app/jira-home $app_root/bin/start-jira.sh -fg" 
 STUFF
 
