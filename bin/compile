@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-script_dir=dirname $0
 build_dir=$1
 cache_dir=$2
 
@@ -8,7 +7,7 @@ cache_dir=$2
 set -e
 
 echo "-----> Install Oracle JDK"
-dpkg -i $script_dir/../deb/oracle-java7-installer_7u65+7u60arm-0~webupd8~2_all.deb
-dpkg -i $script_dir/../deb/oracle-java7-set-default_7u65+7u60arm-0~webupd8~2_all.deb
+dpkg -i $build_dir/../deb/oracle-java7-installer_7u65+7u60arm-0~webupd8~2_all.deb
+dpkg -i $build_dir/../deb/oracle-java7-set-default_7u65+7u60arm-0~webupd8~2_all.deb
 echo "-----> Set JIRA_HOME"
 export JIRA_HOME=/app/
