@@ -7,12 +7,7 @@ cache_dir=$2
 set -e
 
 echo "-----> Install Oracle JDK"
-#apt-get install  software-properties-common -y
-echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main 
-deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" >> /etc/apt/sources.list
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
-#add-apt-repository -y ppa:webupd8team/java
-apt-get -y update
-apt-get -y install oracle-java7-installer 
+dpkg -i ../deb/oracle-java7-installer_7u65+7u60arm-0~webupd8~2_all.deb
+dpkg -i ../deb/oracle-java7-set-default_7u65+7u60arm-0~webupd8~2_all.deb
 echo "-----> Set JIRA_HOME"
 export JIRA_HOME=/app/
