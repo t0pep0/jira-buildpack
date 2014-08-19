@@ -30,23 +30,23 @@ echo "-----> Write Jira Config"
 host=
 #$HOSTNAME
 #`cat /etc/hosts | grep $HOSTNAME | awk '{print $1}'`
-#        <Engine name="Catalina" defaultHost="'$host'">
-#            <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true">
-#                <Context path="" docBase="${catalina.home}/atlassian-jira" reloadable="false" useHttpOnly="true">
-#                    <Resource name="UserTransaction" auth="Container" type="javax.transaction.UserTransaction"
-#                              factory="org.objectweb.jotm.UserTransactionFactory" jotm.timeout="60"/>
-#                    <Manager pathname=""/>
-#                </Context>
-#            </Host>
-#            <Valve className="org.apache.catalina.valves.AccessLogValve" resolveHosts="false"
-#                   pattern="%a %{jira.request.id}r %{jira.request.username}r %t &quot;%m %U%q %H&quot; %s %b %D &quot;%{Referer}i&quot; &quot;%{User-Agent}i&quot; &quot;%{jira.request.assession.id}r&quot;"/>
-#        </Engine>
 echo '<?xml version="1.0" encoding="utf-8"?>
 <Server port="8005" shutdown="SHUTDOWN">
     <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on"/>
     <Listener className="org.apache.catalina.core.JasperListener"/>
     <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
     <Service name="Catalina">
+        <Engine name="Catalina" defaultHost="localhost">
+            <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true">
+                <Context path="" docBase="${catalina.home}/atlassian-jira" reloadable="false" useHttpOnly="true">
+                    <Resource name="UserTransaction" auth="Container" type="javax.transaction.UserTransaction"
+                              factory="org.objectweb.jotm.UserTransactionFactory" jotm.timeout="60"/>
+                    <Manager pathname=""/>
+                </Context>
+            </Host>
+            <Valve className="org.apache.catalina.valves.AccessLogValve" resolveHosts="false"
+                   pattern="%a %{jira.request.id}r %{jira.request.username}r %t &quot;%m %U%q %H&quot; %s %b %D &quot;%{Referer}i&quot; &quot;%{User-Agent}i&quot; &quot;%{jira.request.assession.id}r&quot;"/>
+        </Engine>
         <Connector port="5000"
                    maxThreads="150"
                    minSpareThreads="25"
