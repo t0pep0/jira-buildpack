@@ -21,7 +21,7 @@ dpkg -i '/tmp/oracle-java7-installer_7u65+7u60arm-0~webupd8~2_all.deb'
 dpkg -i '/tmp/oracle-java7-set-default_7u65+7u60arm-0~webupd8~2_all.deb'
 cd -
 echo "-----> Set JIRA_HOME"
-export JIRA_HOME=/app/
+export JIRA_HOME=/app/jira-home
 echo "-----> Create JIRA dir"
 mkdir $build_dir/logs
 mkdir $build_dir/work
@@ -44,7 +44,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>
                    redirectPort="8443"
                    acceptCount="100"
                    disableUploadTimeout="true"/>
-        <Engine name="Catalina" defaultHost="'$defaultHost'">
+        <Engine name="Catalina" defaultHost="0.0.0.0">
             <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true">
                 <Context path="" docBase="${catalina.home}/atlassian-jira" reloadable="false" useHttpOnly="true">
                     <Resource name="UserTransaction" auth="Container" type="javax.transaction.UserTransaction"
